@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button calculateButton;
     private TextView resultTextView;
 
+    private Button clearButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         weightEditText = findViewById(R.id.editTextNumber2);
         calculateButton = findViewById(R.id.button2);
         resultTextView = findViewById(R.id.textView);
+        clearButton = findViewById(R.id.button);
 
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,8 +35,18 @@ public class MainActivity extends AppCompatActivity {
                 double height = Double.parseDouble(heightString);
                 double weight = Double.parseDouble(weightString);
 
-                double bmi = weight / (height / 100) * (height / 100);
-                resultTextView.setText("Your BMI is " + bmi);
+                double bmi = weight / ((height / 100) * (height / 100));
+                String bmiString = String.format("%.2f", bmi);
+                resultTextView.setText("Your BMI is " + bmiString);
+            }
+        });
+
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                heightEditText.setText("");
+                weightEditText.setText("");
+                resultTextView.setText("");
             }
         });
     }
