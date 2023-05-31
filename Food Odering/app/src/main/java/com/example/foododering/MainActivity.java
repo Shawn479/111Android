@@ -49,6 +49,27 @@ public class MainActivity extends AppCompatActivity {
         if(coffee.isChecked())
             str += coffee.getText() + "\n";
 
+
+
+        CheckBox coldCoffee = (CheckBox)findViewById(R.id.checkBox8);
+
+        if(coldCoffee.isChecked())
+            str += coffee.getText() + "\n";
+
+        CheckBox hotCoffee = (CheckBox)findViewById(R.id.checkBox9);
+
+        if(hotCoffee.isChecked())
+            str += coffee.getText() + "\n";
+
+        if(coffee.isChecked()){
+            coldCoffee.setVisibility(View.VISIBLE);
+            hotCoffee.setVisibility(View.VISIBLE);
+        }
+        else{
+            coldCoffee.setVisibility(View.GONE);
+            hotCoffee.setVisibility(View.GONE);
+        }
+
         TextView output = (TextView) findViewById(R.id.lblOutput);
         output.setText(str);
 
