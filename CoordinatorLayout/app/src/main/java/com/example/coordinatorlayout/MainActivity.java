@@ -1,15 +1,18 @@
 package com.example.coordinatorlayout;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
 
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -19,6 +22,7 @@ import com.example.coordinatorlayout.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -27,34 +31,33 @@ public class MainActivity extends AppCompatActivity {
     static Integer num = new Integer(1);
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         FloatingActionButton fab = findViewById(R.id.fab);
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinatorLayout);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Are you sure to add?", Snackbar.LENGTH_LONG)
-                        .setAction("Yes", new View.OnClickListener() {
+                Snackbar.make(coordinatorLayout, "Are you sure to add?", Snackbar.LENGTH_LONG)
+                        .setAction("Yessssss", new View.OnClickListener() {
                             @Override
-                            public void onClick(View v) {
-                                TextView first = (TextView)findViewById(R.id.textview_first);
-                                first.setText(MainActivity.num.toString());
-                                MainActivity.num++;
+                            public void onClick(View view) {
+                                TextView textView = findViewById(R.id.textView);
+                                int count = Integer.parseInt(textView.getText().toString());
+                                count++;
+                                textView.setText(String.valueOf(count));
                             }
-                        }).show();
+                        })
+                        .show();
             }
         });
-    }
 
-    private void setSupportActionBar(Toolbar toolbar) {
 
     }
 
