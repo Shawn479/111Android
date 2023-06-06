@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Food Odering 2</string>
+
+    <string-array name="dessert">
+        <item>蘋果派</item>
+        <item>可麗餅</item>
+        <item>奶酪</item>
+        <item>現烤鬆餅</item>
+        <item>冰淇淋</item>
+    </string-array>
+
+    <string-array name="drink">
+        <item>可樂</item>
+        <item>雪碧</item>
+        <item>咖啡</item>
+    </string-array>
+</resources>
+
